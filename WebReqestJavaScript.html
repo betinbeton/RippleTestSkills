@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Test consuming Rest Ripple Get Account Value Stats</p>
+
+<p>Printed in console</p>
+
+<script>
+
+debugger;
+
+const Http = new XMLHttpRequest();
+const url='http://data.ripple.com/v2/accounts/r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV/stats/value';
+Http.open("GET", url);
+
+Http.onload = function() {
+  // Begin accessing JSON data here
+  
+	  // Begin accessing JSON data here
+	var data = JSON.parse(this.response)
+
+	data.rows.forEach(function(ripple, index) {
+      console.log(ripple.account_value);
+    })
+}
+
+Http.send();
+
+</script>
+
+</body>
+</html>
